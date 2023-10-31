@@ -46,6 +46,35 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_item"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/setting_player_subtitle"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/subtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:text="16" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/flag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +104,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/subtitle"
+            android:id="@+id/tunnel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -88,18 +117,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="@string/setting_player_subtitle"
+                android:text="@string/setting_player_tunnel"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/subtitleText"
+                android:id="@+id/tunnelText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                tools:text="16" />
+                tools:text="關" />
 
         </LinearLayout>
 
@@ -133,7 +162,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/tunnel"
+            android:id="@+id/buffer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -146,18 +175,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="@string/setting_player_tunnel"
+                android:text="@string/setting_player_buffer"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tunnelText"
-                android:layout_width="match_parent"
+                android:id="@+id/bufferText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="end"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                tools:text="關" />
+                tools:text="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/times"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </LinearLayout>

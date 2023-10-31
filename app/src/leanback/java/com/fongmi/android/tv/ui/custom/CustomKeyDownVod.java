@@ -37,7 +37,7 @@ public class CustomKeyDownVod extends GestureDetector.SimpleOnGestureListener {
     }
 
     private CustomKeyDownVod(Activity activity, View videoView) {
-        this.manager = (AudioManager) App.get().getSystemService(Context.AUDIO_SERVICE);
+        this.manager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);
         this.detector = new GestureDetector(activity, this);
         this.listener = (Listener) activity;
         this.videoView = videoView;
@@ -89,7 +89,7 @@ public class CustomKeyDownVod extends GestureDetector.SimpleOnGestureListener {
     public boolean onDown(@NonNull MotionEvent e) {
         if (!full) return false;
         volume = manager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        bright = activity.getWindow().getAttributes().screenBrightness;
+        bright = Utils.getBrightness(activity);
         changeBright = false;
         changeVolume = false;
         touch = true;

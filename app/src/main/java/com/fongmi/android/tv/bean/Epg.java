@@ -2,11 +2,11 @@ package com.fongmi.android.tv.bean;
 
 import android.text.TextUtils;
 
+import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.R;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.github.catvod.utils.Trans;
 import com.github.catvod.utils.Util;
-import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 import java.text.SimpleDateFormat;
@@ -31,7 +31,7 @@ public class Epg {
 
     public static Epg objectFrom(String str, SimpleDateFormat format) {
         try {
-            Epg item = new Gson().fromJson(str, Epg.class);
+            Epg item = App.gson().fromJson(str, Epg.class);
             item.setTime(format);
             return item;
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class Epg {
 
     private String format() {
         if (getTitle().isEmpty()) return "";
-        if (getStart().isEmpty() || getEnd().isEmpty()) return ResUtil.getString(R.string.live_epg_now, getTitle());
+        if (getStart().isEmpty() || getEnd().isEmpty()) return ResUtil.getString(R.string.play_now, getTitle());
         return getStart() + " ~ " + getEnd() + "  " + getTitle();
     }
 

@@ -30,9 +30,9 @@ import com.fongmi.android.tv.impl.FilterCallback;
 import com.fongmi.android.tv.impl.SiteCallback;
 import com.fongmi.android.tv.model.SiteViewModel;
 import com.fongmi.android.tv.ui.activity.CollectActivity;
-import com.fongmi.android.tv.ui.activity.DetailActivity;
 import com.fongmi.android.tv.ui.activity.HistoryActivity;
 import com.fongmi.android.tv.ui.activity.KeepActivity;
+import com.fongmi.android.tv.ui.activity.VideoActivity;
 import com.fongmi.android.tv.ui.adapter.TypeAdapter;
 import com.fongmi.android.tv.ui.base.BaseFragment;
 import com.fongmi.android.tv.ui.custom.dialog.FilterDialog;
@@ -168,7 +168,7 @@ public class VodFragment extends BaseFragment implements SiteCallback, FilterCal
         } else if (mAdapter.get(position).getFilters().size() > 0) {
             mBinding.link.setVisibility(View.GONE);
             mBinding.filter.show();
-        } else if (position == 0) {
+        } else if (position == 0 || mAdapter.get(position).getFilters().isEmpty()) {
             mBinding.link.show();
             mBinding.filter.setVisibility(View.GONE);
         }
@@ -274,7 +274,7 @@ public class VodFragment extends BaseFragment implements SiteCallback, FilterCal
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != Activity.RESULT_OK || requestCode != FileChooser.REQUEST_PICK_FILE) return;
-        DetailActivity.file(getActivity(), FileChooser.getPathFromUri(getContext(), data.getData()));
+        VideoActivity.file(getActivity(), FileChooser.getPathFromUri(getContext(), data.getData()));
     }
 
     @Override
